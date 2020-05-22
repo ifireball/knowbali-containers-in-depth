@@ -1,1 +1,5 @@
+# Be nice to vim
 .*.swp
+
+# Files written during demonstration:
+wsgi-app/Dockerfile
