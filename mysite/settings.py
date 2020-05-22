@@ -74,13 +74,24 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
+DB_BACKENDS = {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    'psql': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':     os.environ.get('POSTGRESQL_DATABASE', 'simpleblog'),
+        'USER':     os.environ.get('POSTGRESQL_USER',     'simpleblog'),
+        'PASSWORD': os.environ.get('POSTGRESQL_PASSWORD', 'simpleblog'),
+        'HOST':     os.environ.get('POSTGRESQL_HOST',     'localhost'),
+        'PORT':     os.environ.get('POSTGRESQL_PORT',     '5432'),
+    },
 }
 
+DATABASES = {
+    'default': DB_BACKENDS[os.environ.get('DJANGO_DB_BACKEND', 'sqlite')],
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

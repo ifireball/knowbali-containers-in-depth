@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: registry.redhat.io/rhel8/postgresql-96
+    environment:
+      - POSTGRESQL_USER=simpleblog
+      - POSTGRESQL_PASSWORD=simpleblog
+      - POSTGRESQL_DATABASE=simpleblog
+    ports:
+      - "5432:5432"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+volumes:
+  dbdata:
+    name: dbdata
