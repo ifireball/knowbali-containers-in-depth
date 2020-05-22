@@ -1,5 +1,8 @@
 # Be nice to vim
 .*.swp
 
+# Don't commit the Django database
+db.sqlite3
+
 # Files written during demonstration:
 wsgi-app/Dockerfile
