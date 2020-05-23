@@ -4,5 +4,8 @@
 # Don't commit the Django database
 db.sqlite3
 
+# Vagrant temp dir
+.vagrant
+
 # Files written during demonstration:
 wsgi-app/Dockerfile
