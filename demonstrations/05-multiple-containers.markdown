@@ -238,10 +238,6 @@ To start up evetything we use the usual Vagrant command:
 
     vagrant up
 
-(We're not seeing race condition issues because I've pre-provisioned the VM. Had
-I ran the actual provisioning now, the app container may have started too fast
-and crashed.
-
 We can shut down everything in the usual way:
 
     vagrant halt
