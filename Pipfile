@@ -9,6 +9,7 @@ verify_ssl = true
 django = "<2.2"
 docker-compose = "*"
 psycopg2-binary = "*"
+ansible = "*"
 
 [requires]
 python_version = "3.6"

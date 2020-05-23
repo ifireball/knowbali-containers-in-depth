@@ -1,0 +1,63 @@
+# start.yaml - Ansible playbook for starting a simple blog environment in Docker
+#              containers with Postgres
+#
+# This playbook accepts several optional values.
+# The values can be provided via the '-e' command-line argument, via an
+# inventory file or via environment variables. When environment variables are
+# used, their names are capitalized versions of the variable names listed here.
+# - app_image_name - The name to set for the app container image
+#
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    _app_image_name: "{{
+        app_image_name
+        |default(lookup('env', 'APP_IMAGE_NAME'))
+        |default('quay.io/bkorren/simpleblog', true)
+    }}"
+  tasks:
+    - name: "Setup a DB data volume"
+      docker_volume:
+        name: simpleblog_db_data
+
+    - name: "Start DB container"
+      docker_container:
+        name: simpleblog_db
+        image: registry.redhat.io/rhel8/postgresql-96
+        env:
+          POSTGRESQL_USER: simpleblog
+          POSTGRESQL_PASSWORD: simpleblog
+          POSTGRESQL_DATABASE: simpleblog
+        published_ports:
+          - "5432:5432"
+        volumes:
+          - "simpleblog_db_data:/var/lib/pgsql/data"
+      register: db_container
+
+    - name: "Build app container"
+      docker_image:
+        name: "{{ _app_image_name }}"
+        source: build
+        build:
+          path: "{{ playbook_dir|dirname }}"
+          pull: yes
+
+    - name: "Verify the database is up"
+      wait_for:
+        host: "{{ db_container.container.NetworkSettings.IPAddress }}"
+        port: 5432
+
+    - name: "Start the app"
+      docker_container:
+        name: simpleblog_app
+        image: "{{ _app_image_name }}"
+        env:
+          DJANGO_DB_BACKEND: psql
+          POSTGRESQL_HOST: "{{ db_container.container.NetworkSettings.IPAddress }}"
+          POSTGRESQL_PORT: "5432"
+          POSTGRESQL_USER: simpleblog
+          POSTGRESQL_PASSWORD: simpleblog
+          POSTGRESQL_DATABASE: simpleblog
+        published_ports:
+          - "8080:8080"
