@@ -17,6 +17,7 @@ To set up development dependencies:
 
 To run it locally:
 
+    pipenv run python3 manage.py migrate
     pipenv run python3 manage.py runserver 8080
 
 In this command:
