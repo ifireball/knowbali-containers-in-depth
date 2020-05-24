@@ -37,7 +37,8 @@ Following is a list of the required tools ans settings:
 
 1. [Docker][3.1] absolutely must be installed and ready for use in order to
    follow any of the demonstrations. Installation instructions for installing
-   "Docker Desktop" can be found [here][3.2]
+   "Docker Desktop" can be found [here][3.2] (If you're usine Windows, please
+   see the [note below](#vn))
 2. To access the [RHEL][3.3] and [UBI][3.4] container images used in some of the
    demonstrations, one needs to:
    1. Sign up for a [redhat.com][3.5] account (Its free)
@@ -69,11 +70,29 @@ Following is a list of the required tools ans settings:
    suitable for your OS to some location that is pointed to by `$PATH`
 6. To run the [Vagrant][3.21]-based demonstrations follow the instructions
    [here][3.22] to install it. You'll also need [VirtualBox][3.23] (Instructions
-   [here][3.24]) or, alternatively if using Linux, you can use the
+   [here][3.24], but if you're usine Windows, please see the [note below](#vn))
+   or, alternatively if using Linux, you can use the
    [vagrant-libvirt][3.25] plugin to use the native virtualization system
    (Installation instruction are in the main `README.md` file)
 
-This list of tools may seem extensive, but most of these are standard tools you'll find on any developer's workstation. The major tools have been used in other parts of the course already, so they are hopefully already installed on most students` computers.
+This list of tools may seem extensive, but most of these are standard tools
+you'll find on any developer's workstation. The major tools have been used in
+other parts of the course already, so they are hopefully already installed on
+most students` computers.
+
+**<a id="vn">Note:</a>** It seems that on Windows, recent Docker versions enable
+the system's built-in Hyper-V hypervisor which prevents VritualBox (And
+therfore, Vagrant) from working. There are a couple of work-arounds for this:
+
+1. Don't install Docker on Windows, instead, install a Linux VM on
+   VirtulBox/Vagrant and install Docket inside it
+2. Switch to using the [Hyper-V][3.26] hypervisor with Vagrant (As a personal
+   perference, I'd go with this option. OS-Native Hypervisors like Hyper-V
+   typically outperform foreign ones like VirtualBox)
+
+If you've already installed Docker, found out that Virtualbox isn't wornking,
+and would like to remove Docker and fix it, follow the instructions [in this
+post][3.27].
 
 [3.1]: https://www.docker.com/
 [3.2]: https://www.docker.com/get-started
@@ -100,3 +119,5 @@ This list of tools may seem extensive, but most of these are standard tools you'
 [3.23]: https://www.virtualbox.org/
 [3.24]: https://www.virtualbox.org/wiki/Downloads
 [3.25]: https://github.com/vagrant-libvirt/vagrant-libvirt
+[3.26]: https://www.vagrantup.com/docs/hyperv/
+[3.27]: https://stackoverflow.com/a/38111013/8243700
