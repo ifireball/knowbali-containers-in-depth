@@ -42,10 +42,8 @@ Following is a list of the required tools ans settings:
 2. To access the [RHEL][3.3] and [UBI][3.4] container images used in some of the
    demonstrations, one needs to:
    1. Sign up for a [redhat.com][3.5] account (Its free)
-   2. Setup a Red Hat container registry service account [here][3.6]
-   3. Follow the instructions screen you get after creating the service account
-      to install the service account credentials into your local Docker
-      installation with the `docker login` command
+   3. Follow the instructions [here][3.6] to run the `docker login` command with
+      your account.
    4. To test your setup you can run the following command:
 
             docker pull registry.redhat.io/rhel8/httpd-24
@@ -99,7 +97,7 @@ post][3.27].
 [3.3]: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
 [3.4]: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image
 [3.5]: https://www.redhat.com
-[3.6]: https://access.redhat.com/terms-based-registry/
+[3.6]: https://access.redhat.com/RegistryAuthentication?extIdCarryOver=true&sc_cid=701f2000001OH74AAG
 [3.7]: https://quay.io/
 [3.8]: https://quay.io/signin/
 [3.9]: https://www.djangoproject.com/
