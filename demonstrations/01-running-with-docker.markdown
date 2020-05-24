@@ -8,9 +8,6 @@ We can run a container with a simple command:
 
     docker run centos:8
 
-(UBI stands for "Universal base image", its a freely available family of RHEL
-container base images)
-
 It looks like nothing happened lets try to inspect running containers:
 
     docker ps
