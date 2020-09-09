@@ -42,7 +42,7 @@ Running the app in a container
 ------------------------------
 
 We wrote a `Dockerfile` for our app (We actually auto-generated it, more about
-this later), and we've already built the image for it, so we can simpy run it:
+this later), and we've already built the image for it, so we can simply run it:
 
     docker run -it --rm -p 8080:8080 quay.io/bkorren/simpleblog
 

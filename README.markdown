@@ -36,24 +36,14 @@ the students' computers before going into class.
 Following is a list of the required tools ans settings:
 
 1. [Docker][3.1] absolutely must be installed and ready for use in order to
-   follow any of the demonstrations. Installation instructions for installing
-   "Docker Desktop" can be found [here][3.2] (If you're usine Windows, please
-   see the [note below](#vn))
-2. To access the [RHEL][3.3] and [UBI][3.4] container images used in some of the
-   demonstrations, one needs to:
-   1. Sign up for a [redhat.com][3.5] account (Its free)
-   3. Follow the instructions [here][3.6] to run the `docker login` command with
-      your account.
-   4. To test your setup you can run the following command:
-
-            docker pull registry.redhat.io/rhel8/httpd-24
-
-        If all goes well, the image should be pulled successfully to your
-        machine
-3. To practice pushing images to remote registries, you need a [quay.io][3.7]
+   follow any of the demonstrations. There are ways to install Docker on Windows
+   or MAC, but since students had issues with this in the past I now recommend
+   setting up a Linux VM with VirtualBox or Vagrant and installing the Docker
+   package there.
+2. To practice pushing images to remote registries, you need a [quay.io][3.7]
    account. You can create one [here][3.8], or simply sign-in with your existing
    Google or GitHub accounts
-4. To run the [Django][3.9] test application locally, as well as
+3. To run the [Django][3.9] test application locally, as well as
    [Docker compose][3.10] and [Ansible][3.11], you need to have:
    1. [Python][3.12] (3.6.8 or newer). Installation instructions can be found
       [here for Windows][3.13] and [here for Mac][3.14]. For Linux you should
@@ -63,10 +53,10 @@ Following is a list of the required tools ans settings:
       Instead, either use `pip` with the `--user` option (`pip` should be
       included with your Python installation), or use [Pipx][3.17] followig
       the instructions [here][3.18].
-5. If you want to try running [S2i][3.19] locally, you can download it
+4. If you want to try running [S2i][3.19] locally, you can download it
    [here][3.20] and simply extract the single file you will find in the archive
    suitable for your OS to some location that is pointed to by `$PATH`
-6. To run the [Vagrant][3.21]-based demonstrations follow the instructions
+5. To run the [Vagrant][3.21]-based demonstrations follow the instructions
    [here][3.22] to install it. You'll also need [VirtualBox][3.23] (Instructions
    [here][3.24], but if you're usine Windows, please see the [note below](#vn))
    or, alternatively if using Linux, you can use the
@@ -78,26 +68,7 @@ you'll find on any developer's workstation. The major tools have been used in
 other parts of the course already, so they are hopefully already installed on
 most students` computers.
 
-**<a id="vn">Note:</a>** It seems that on Windows, recent Docker versions enable
-the system's built-in Hyper-V hypervisor which prevents VritualBox (And
-therfore, Vagrant) from working. There are a couple of work-arounds for this:
-
-1. Don't install Docker on Windows, instead, install a Linux VM on
-   VirtulBox/Vagrant and install Docket inside it
-2. Switch to using the [Hyper-V][3.26] hypervisor with Vagrant (As a personal
-   perference, I'd go with this option. OS-Native Hypervisors like Hyper-V
-   typically outperform foreign ones like VirtualBox)
-
-If you've already installed Docker, found out that Virtualbox isn't wornking,
-and would like to remove Docker and fix it, follow the instructions [in this
-post][3.27].
-
 [3.1]: https://www.docker.com/
-[3.2]: https://www.docker.com/get-started
-[3.3]: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
-[3.4]: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image
-[3.5]: https://www.redhat.com
-[3.6]: https://access.redhat.com/RegistryAuthentication?extIdCarryOver=true&sc_cid=701f2000001OH74AAG
 [3.7]: https://quay.io/
 [3.8]: https://quay.io/signin/
 [3.9]: https://www.djangoproject.com/
@@ -109,7 +80,7 @@ post][3.27].
 [3.15]: https://pipenv.pypa.io/en/latest/
 [3.16]: https://pipenv.pypa.io/en/latest/install/#installing-pipenv
 [3.17]: https://pipxproject.github.io/pipx/
-[3.18]: https://pipxproject.github.io/pipx/installation/ 
+[3.18]: https://pipxproject.github.io/pipx/installation/
 [3.19]: https://github.com/openshift/source-to-image
 [3.20]: https://github.com/openshift/source-to-image/releases
 [3.21]: https://www.vagrantup.com/

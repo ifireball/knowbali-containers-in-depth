@@ -3,7 +3,7 @@ DEMO: Building with Dockerfiles
 
 We place the following contents in `wsgi-app/Dockerfile`:
 
-    FROM registry.redhat.io/rhel8/httpd-24
+    FROM centos/httpd-24-centos8
 
     # Switch to root
     USER 0

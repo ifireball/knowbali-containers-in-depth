@@ -10,7 +10,7 @@ configuration file for Apache to run it.
 
 We start the HTTPD container like we did before:
 
-    docker run -d --name=mysvc -p 8080:8080 registry.redhat.io/rhel8/httpd-24
+    docker run -d --name=mysvc -p 8080:8080 centos/httpd-24-centos8
 
 * This time we do not include the `--rm` option so we can still have access to
   the container image after we kill the container.

@@ -109,7 +109,7 @@ Running a service container
 
 Lets run a container with a service application in it:
 
-    docker run -d --rm --name=mysvc -p 8080:8080 registry.redhat.io/rhel8/httpd-24
+    docker run -d --rm --name=mysvc -p 8080:8080 centos/httpd-24-centos8
 
 In this command:
 * `-d` makes Docker leave our shell alone
