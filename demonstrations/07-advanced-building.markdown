@@ -31,7 +31,7 @@ Creating the repository:
     "Add latest tag if on default branch".
 12. We click continue
 
-13. We select the `Dockerfile.centos` (Continue)
+13. We select the `Dockerfile` (Continue)
 14. And the context `/` (Continue)
 
 15. If all goes well, quay.io will tell us so and show ue the SSH key id added
@@ -66,7 +66,7 @@ Note:
 
 We can also generate Dockerfiles with s2i via:
 
-    s2i build . registry.redhat.io/ubi8/python-36 --as-dockerfile Dockerfile.new
+    s2i build . registry.access.redhat.io/ubi8/python-36 --as-dockerfile Dockerfile.new
 
 Note:
 * This creates the `uploads` directory and copies all the files there. It also

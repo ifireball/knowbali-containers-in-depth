@@ -24,7 +24,7 @@
     - name: "Start DB container"
       docker_container:
         name: simpleblog_db
-        image: registry.redhat.io/rhel8/postgresql-96
+        image: centos/postgresql-96-centos7
         env:
           POSTGRESQL_USER: simpleblog
           POSTGRESQL_PASSWORD: simpleblog
