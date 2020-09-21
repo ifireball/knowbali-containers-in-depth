@@ -34,7 +34,7 @@ Creating the repository:
 13. We select the `Dockerfile` (Continue)
 14. And the context `/` (Continue)
 
-15. If all goes well, quay.io will tell us so and show ue the SSH key id added
+15. If all goes well, quay.io will tell us so and show us the SSH key id added
     to the GitHub repo for cloning the source.
 16. We can click on "go back to..." to go back to our repository main screen.
 
@@ -56,7 +56,7 @@ Building with s2i
 
 To run the build with s2i:
 
-    s2i build . registry.redhat.io/ubi8/python-36 quay.io/bkorren/simpeblog
+    s2i build . registry.access.redhat.com/ubi8/python-36 quay.io/bkorren/simpeblog
 
 Note:
 * S2i moves file around with Git. We need to commit all changes before running it
@@ -66,7 +66,7 @@ Note:
 
 We can also generate Dockerfiles with s2i via:
 
-    s2i build . registry.access.redhat.io/ubi8/python-36 --as-dockerfile Dockerfile.new
+    s2i build . registry.access.redhat.com/ubi8/python-36 --as-dockerfile Dockerfile.new
 
 Note:
 * This creates the `uploads` directory and copies all the files there. It also

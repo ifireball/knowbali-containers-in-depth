@@ -1,4 +1,4 @@
-FROM registry.access.redhat.io/ubi8/python-36
+FROM registry.access.redhat.com/ubi8/python-36
 LABEL "io.openshift.s2i.build.source-location"="/home/bkorren/src/github.com/ifireball/knowbali-containers-in-depth/." \
       "io.k8s.display-name"="quay.io/bkorren/django-blog" \
       "io.openshift.s2i.build.image"="registry.redhat.io/ubi8/python-36" \
