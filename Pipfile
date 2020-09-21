@@ -10,6 +10,8 @@ django = "<2.2"
 docker-compose = "*"
 psycopg2-binary = "*"
 ansible = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.6"
