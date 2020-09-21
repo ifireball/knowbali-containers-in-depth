@@ -1,72 +1,15 @@
 DEMO: Running multiple containers
 =================================
 
-Our test app
-------------
+Modifying our test app for using a DB in a remote container
+-----------------------------------------------------------
 
-We have a Django-based app (The Blog all from Django-girls tutorial).
+We saw the Djang test blog app before.
 
-To get the app source code:
+    vim mysite/settings.py
 
-    git clone https://github.com/ifireball/knowbali-containers-in-depth.git
-
-To set up development dependencies:
-
-    cd knowbali-containers-in-depth
-    pipenv sync
-
-To run it locally:
-
-    pipenv run python3 manage.py migrate
-    pipenv run python3 manage.py runserver 8080
-
-In this command:
-* `pipenv` manages the Python virtual environment and takes care of Python
-  dependencies for us
-* `manage.py` is the Django command-line tool
-* We ask the server to run on port 8080 jut to be compatible with the way the
-  container images do it, the default is port 8000.
-
-Now we can go to `http://localhost:8080` with a browser and see our site. We
-can:
-* Log in
-* Add posts
-* Edit posts
-* Delete posts
-* Log out
-
-We can do `^C` to stop the server. With `ls -l` we can see the `db.sqlite3`
-file.
-
-Running the app in a container
-------------------------------
-
-We wrote a `Dockerfile` for our app (We actually auto-generated it, more about
-this later), and we've already built the image for it, so we can simply run it:
-
-    docker run -it --rm -p 8080:8080 quay.io/bkorren/simpleblog
-
-In this command:
-* We use `-it --rm` to see the output of the container and delete it
-  automatically when doing `^C`.
-
-We can see in the container output that the DB migrations are being run when it
-starts up - Why is that?
-
-When we go to `http://localhost:8080` we see our app running, but this time the
-Blog is empty - why is that?
-
-Lets add some posts.
-
-If we do `^C` and then rerun the container with:
-
-    docker run -it --rm -p 8080:8080 quay.io/bkorren/simpleblog
-
-We see:
-* The DB migrations run again.
-* The Blog is empty again.
-
-Why is that?
+The `settings.py` file of that app is using environment variables to get
+configuration values from the runtime environment.
 
 Using a DB container
 --------------------
@@ -166,7 +109,7 @@ We can see that our app crashes immediately when we try this (Why?). We have a
 race condition where the app is trying to connect to the database before it is
 available for use.
 
-Sine we ran `docker-compose` without `-d` this time we can type `^C` to stop it
+Since we ran `docker-compose` without `-d` this time we can type `^C` to stop it
 and shut down all the running containers.
 
 Starting up containers with Ansible
@@ -231,10 +174,8 @@ Note:
   another because we cannot control Docker networks (Like Docker compose does)
   nor can we query the settings of running containers (Like we did with
   Ansible).
-* We use CentOs-based container images instead of RHEL simply to avoid having to
-  configure acces to the Red Hat registry in the Vagrant VM.
 
-To start up evetything we use the usual Vagrant command:
+To start up everything we use the usual Vagrant command:
 
     vagrant up
 
