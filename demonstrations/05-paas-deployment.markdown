@@ -4,7 +4,7 @@ DEMO: Deploying an application to a PaaS
 Our test app
 ------------
 
-We have a Django-based app (The Blog all from Django-girls tutorial).
+We have a Django-based app (The Blog app from the Django-girls tutorial).
 
 To get the app source code:
 
@@ -71,7 +71,7 @@ source code directly from GitHub and run it.
 
 Here are the steps to do this:
 
-1. From the Heroku main dashboard, click on "Create new app"
+1. From the [Heroku main dashboard][5], click on "Create new app"
 2. Fill-in an app name (Will be used in URL) and a region (In our case -
    `beyond-blog`).
 3. From under "Deployment method" choose "GitHub"
@@ -96,3 +96,5 @@ patch in GitHub.
 7. In the "Automatic deploys" section, choose the branch you want to deploy from
    ("master" for our app) and click "Enable Automatic Deploys" (We leave "Wait
    for CI to pass before deploy" off for now).
+
+[5]: https://dashboard.heroku.com/apps
