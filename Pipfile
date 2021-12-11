@@ -6,7 +6,7 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "<2.2"
+django = "*"
 docker-compose = "*"
 psycopg2-binary = "*"
 ansible = "*"
@@ -14,4 +14,4 @@ gunicorn = "*"
 django-heroku = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"

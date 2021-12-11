@@ -75,6 +75,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 DB_BACKENDS = {
     'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
